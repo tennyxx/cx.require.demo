@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- <script type="text/javascript" src="modules/module_1.js"></script>
+    <script type="text/javascript" src="modules/module_2.js"></script>
+    <script type="text/javascript" src="modules/module_3.js"></script> -->
+    <!-- data-main声明主模块路径，先加载主模块-->
+    <script type="text/javascript" src="require.js" data-main="config.js"></script>
+    <script type="text/javascript">
+        //最外层还是要先像普通引入模块一样，引入主模块，加载配置
+        require(['config'], function () {
+            //然后再根据配置文件中定义的模块，按需要引入。
+            require(['mod1', 'mod2', 'mod3'], function (mod1, mod2, mod3) {
+                mod1.ready();
+                mod2.ready();
+            })
+        });
+    </script>
+</body>
+
+</html>

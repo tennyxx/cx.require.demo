@@ -1,0 +1,19 @@
+(function(){
+    require.config({
+        //baseUrl是一个统一的根路径，如果没有需要可以不配
+        //baseUrl:"",
+        //paths配置直接模块名对应路径即可
+        paths:{
+            "mod1":"modules/module_1",
+            "mod2":'modules/module_2',
+            "mod3":'modules/module_3'
+        },
+        //shim配置不符合AMD规范的模块
+        shim:{
+            "mod3":{
+                deps:[],//依赖的模块
+                exports:'mod3'//导出的模块名
+            }
+        }
+     });
+}());
